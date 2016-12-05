@@ -31,18 +31,20 @@
 			}
 			#calculate label{
 				font-size: 12px;
+				display: block;
 			}
 			#calculate div{
 				margin: 10px 0px;
 			}
 			#calculate input{
-				width: 100px;
+				width: 90%;
 				height: 30px;
 				border: #78c796 solid 1px;
 				border-radius:5px;
 				text-indent: 10px;
 				outline: none;
-				margin: 0px 10px;
+				margin: 0px 10px 20px 10px;
+				text-align: center;
 			}
 			#calculate_button input{
 				background: #78C796;
@@ -50,6 +52,7 @@
 				font-size: 15px;
 				text-indent: 0;
 				font-weight: 600;
+				margin-top: 20px;
 			}
 		</style>
 	</head>
@@ -57,13 +60,16 @@
 		<div id="main">
 			<div id="calculate">
 				<div id="parent">
-					<label for="parent">根元素的大小</label><input type="text" name="parent"  value="16"/>px
+					<label for="parent">根元素的大小  (px)</label>
+					<input type="text" name="parent"  value="16"/>
 				</div>
 				<div id="pxValue">
-					<label for="pxValue">需要转换的px值</label><input type="text" name="pxValue"  value=""/>px
+					<label for="pxValue">需要转换的px值   (px)</label>
+					<input type="text" name="pxValue"  value=""/>
 				</div>
 				<div id="emValue">
-					<label for="emValue">转换的em值</label><input type="text" name="emValue"  value=""/>em
+					<label for="emValue">转换的em值   (em)</label>
+					<input type="text" name="emValue"  value=""/>
 				</div>
 				<div id="calculate_button">
 					<input type="button" value="转化" />
