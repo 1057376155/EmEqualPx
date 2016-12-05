@@ -1,0 +1,99 @@
+<!--browser-sync start --server --files "css/*.css,*.html,js/*.js" --browser "chrome" --index "index.html"-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>em转px</title>
+		<style>
+			body{
+				margin:0;
+			}
+			#main{
+				max-width: 600px;
+				background: oldlace;
+				margin: 0 auto;
+				width: 100%;
+				position: relative;
+			}
+			#calculate{
+				width: 100%;
+				height: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				border-radius: 5px;
+				font-family: "微软雅黑";
+				text-align: center;
+			}
+			#calculate label{
+				font-size: 12px;
+			}
+			#calculate div{
+				margin: 10px 0px;
+			}
+			#calculate input{
+				width: 100px;
+				height: 30px;
+				border: #78c796 solid 1px;
+				border-radius:5px;
+				text-indent: 10px;
+				outline: none;
+				margin: 0px 10px;
+			}
+			#calculate_button input{
+				background: #78C796;
+				color: white;
+				font-size: 15px;
+				text-indent: 0;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="calculate">
+				<div id="parent">
+					<label for="parent">根元素的大小</label><input type="text" name="parent"  value="16"/>px
+				</div>
+				<div id="pxValue">
+					<label for="pxValue">需要转换的px值</label><input type="text" name="pxValue"  value=""/>px
+				</div>
+				<div id="emValue">
+					<label for="emValue">转换的em值</label><input type="text" name="emValue"  value=""/>em
+				</div>
+				<div id="calculate_button">
+					<input type="button" value="转化" />
+				</div>
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js"></script>R
+	<script type="text/javascript">
+		var winH=$(window).height();
+		$("#main").height(winH);
+		$("#calculate_button").click(function(){
+			var parentValue=parseInt($("#parent input").val());
+			var pxValue=parseInt($("#pxValue input").val());
+			if(!CheckNumber(parentValue)||!CheckNumber(pxValue)){
+				alert("输入的参数有误")
+				return false;
+			}
+			$("#emValue input").val(getEm(parentValue,pxValue));
+		});	
+		function getEm(parentValue,px){
+			return ((1/parentValue)*px);
+		}
+		function CheckNumber(agr){
+			if(typeof(agr)==='number' && agr>=0){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+</html>
